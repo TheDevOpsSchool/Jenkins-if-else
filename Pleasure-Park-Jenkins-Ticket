@@ -1,0 +1,90 @@
+//This is a pricing ticket for Pleasure Park built by DevSecOps Team
+
+def HELLO = "danielsgg";
+
+def button_yellow = "blue";
+def button_green = "white";
+def button_red = "red";
+def button_blue = "yellow";
+
+def age = 14;
+def handi_person = "nil";
+def adult_age = 18;
+def benchmark = 13;
+
+def child_fee = 500;
+def teen_fee = 700;
+def adult_fee = 1000;
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Start') {
+            steps {
+                script {
+                    
+                    //echo "Button1 is ${button_yellow}"
+                    echo "${age}"
+
+                    if (handi_person == "handicap") {
+                        echo "This person is a handicap, enter for FREE!"
+                    } else {
+                        if (age < benchmark) {
+                        echo "This person is a child, pay the sum of N${child_fee}"
+                        }
+                        else if (age == benchmark) {   
+                            echo "This person is a teen, pay the sum of N${teen_fee}"
+                        }
+                        else if (age > benchmark && age < 18) {   
+                            echo "This person is a teen, pay the sum of N${teen_fee}"
+                        }
+                        else if (age >= 18) {   
+                            echo "This person is an adult, pay the sum of N${adult_fee}"
+                        } else {
+                            echo "NA"
+                        } 
+                    }                      
+                    //echo "a is ${a}"
+                }
+            }
+        }
+        stage('If-Else') {
+            steps {
+                script {
+                    //echo "I am ${HELLO}"
+
+             
+                    echo "Button2 is ${button_yellow}"
+                    
+                    // if (HELLO == "daniel") {
+                    //     echo "I am Daniel"
+                    // } 
+                    // else if (HELLO == "danielsg") {
+                    //     echo "I am not Daniel"
+                    // } else {
+                    //     echo "Daniel not found"
+                    // }
+                }
+            }
+        }
+        stage('Ended') {
+            steps {
+                script {
+                    
+                    echo "Button3 is ${button_blue}"
+
+                    sh "echo The Test Ended"
+                }
+            }
+        }
+        stage('New') {
+            steps {
+                script {
+                    echo "button4 is ${button_green}"
+                 
+                }
+            }
+        }               
+    }
+}
